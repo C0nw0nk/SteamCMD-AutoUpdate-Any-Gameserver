@@ -1,2 +1,2 @@
 # SteamCMD-AutoUpdate-Any-Gameserver
-Windows SteamCMD to autoupdate any game server
+Windows SteamCMD to automaticly update any game server
