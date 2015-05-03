@@ -31,9 +31,11 @@ If your game server is to crash you may have to wait for the next automatic upda
 There are two different appid's you might have to specify for your game server to automaticly update. Since some games for example CS:GO have a seperate appid for the updater url than the appid you would use to install the game server as show below.
 
 Install CS:GO server appid = 740
+
 Auto Update URL appid = 730
 
 You will know if you have to set a different appid for the update url if the contents of your latest-version.txt show this.
+
 {
     "game": {
 
