@@ -1,7 +1,7 @@
 @ECHO OFF
 
 ::==============================::
-::  SteamCMD Auto Updater 1.0   ::
+::  SteamCMD Auto Updater 1.1   ::
 ::           Credits            ::
 ::           C0nw0nk            ::
 ::==============================::
@@ -58,10 +58,10 @@ set interval=300
 
 :: for the fact you have even scrolled down this far shows your persistence ::
 
-title SteamCMD Auto Updater V1.0   %servername%
+title %servername%  SteamCMD Auto Updater V1.1
 
 
-if $SYSTEM_os_arch==x86 (
+if %PROCESSOR_ARCHITECTURE%==x86 (
 rem echo OS is 32bit
 set curl=curl-32bit.exe
 ) else (
