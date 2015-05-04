@@ -1,7 +1,7 @@
 @ECHO OFF
 
 ::==============================::
-::  SteamCMD Auto Updater 1.1   ::
+::  SteamCMD Auto Updater 1.2   ::
 ::           Credits            ::
 ::           C0nw0nk            ::
 ::==============================::
@@ -40,7 +40,15 @@ set servername=My CSGO#1 Server
 
 :: Automatic Updating Interval (in seconds) this will set how often you check the steam servers for a new update ::
 :: I recommend 5-10 mins ::
-set interval=300
+set interval=60
+
+:: Suppress application error messages, Usualy when your game server crashes you get flagged the following error ::
+:: "srcds.exe has stopped working. Windows can check online for a solution to the problem" ::
+:: and even after disabling error reporting and the message above you will get the following message instead ::
+:: "srcds.exe has stopped working. A problem caused the program to stop working correctly. Please close the program" ::
+:: With the following setting the script will prevent all these errors and get your server back online as soon as a crash occurs ::
+:: set to false to disable this feature ::
+set suppress_errors=true
 
 :: Don't edit anything past this point ::
 
@@ -58,7 +66,7 @@ set interval=300
 
 :: for the fact you have even scrolled down this far shows your persistence ::
 
-title %servername%  SteamCMD Auto Updater V1.1
+title %servername%  SteamCMD Auto Updater V1.2
 
 
 if %PROCESSOR_ARCHITECTURE%==x86 (
@@ -67,6 +75,12 @@ set curl=curl-32bit.exe
 ) else (
 rem echo OS is 64bit
 set curl=curl-64bit.exe
+)
+
+if "%suppress_errors%"=="false" (
+) else (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Windows" /v ErrorMode /t REG_DWORD /d 2 /f
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting" /v DontShowUI /t REG_DWORD /d 1 /f
 )
 
 :loop
@@ -97,7 +111,7 @@ goto loop
 rem echo pid not found pause so start running the game server and get game server pid
 rem process id in pid file not found or running so lets start the game server to get it running and store the game server pid in the file
 for /f "tokens=2 delims==; " %%a in (' wmic process call create "%exe_path%" ^| find "ProcessId" ') do set PID=%%a
-rem echo %PID% > pid.txt
+echo %PID% > pid.txt
 timeout /t %interval% /NOBREAK
 goto loop
 pause
@@ -111,7 +125,7 @@ rem use the process id and check if it is running or not
 setlocal enableDelayedExpansion
 set "cmd=tasklist.exe /FI "pid eq %texte%""
 for /F "delims=*" %%p in ('!cmd! ^| findstr "%texte%" ') do (
-echo pid of game server running and found so kill / end the process %%p
+rem echo pid of game server running and found so kill / end the process %%p
 taskkill /PID %texte%
 )
 rem execute updater and then close when updates installed and validated
