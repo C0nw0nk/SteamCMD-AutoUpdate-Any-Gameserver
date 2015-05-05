@@ -1,7 +1,7 @@
 @ECHO OFF
 
 ::==============================::
-::  SteamCMD Auto Updater 1.3   ::
+::  SteamCMD Auto Updater 1.4   ::
 ::           Credits            ::
 ::           C0nw0nk            ::
 ::==============================::
@@ -39,7 +39,7 @@ set appid=740
 set update_appid=730
 
 :: Automatic Updating Interval (in seconds) this will set how often you check the steam servers for a new update ::
-:: I recommend 5-10 mins ::
+:: I recommend 5-10 mins maximum ::
 :: Default value 60 seconds 1 minute ::
 set interval=60
 
@@ -50,6 +50,10 @@ set interval=60
 :: With the following setting the script will prevent all these errors and get your server back online as soon as a crash occurs ::
 :: set to false to disable this feature ::
 set suppress_errors=true
+
+:: CURL Directory you may define the installation path of CURL if you moved the executables to another directory ::
+:: Example ::
+:: set curl_dir=C:\path\curl
 
 :: Don't edit anything past this point ::
 
@@ -67,7 +71,7 @@ set suppress_errors=true
 
 :: for the fact you have even scrolled down this far shows your persistence ::
 
-title %servername%  SteamCMD Auto Updater V1.3
+title %servername%  SteamCMD Auto Updater V1.4
 
 
 if %PROCESSOR_ARCHITECTURE%==x86 (
@@ -86,30 +90,30 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Windows" /v ErrorMode /
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting" /v DontShowUI /t REG_DWORD /d 1 /f >nul 2>&1
 )
 
-if exist pid.txt (
+if exist %~n0-pid.txt (
 echo "" >nul
 ) else (
-echo "" > pid.txt
+echo "" > %~n0-pid.txt
 )
 
 :loop
 rem curl call to get the latest game server version from the steam servers
-%curl% -o latest-version.txt ""http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=%steamkey%^&appid=%update_appid%^&format=json""
-if exist current-version.txt (
+%curl_dir%%curl% -o %~n0-latest-version.txt ""http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=%steamkey%^&appid=%update_appid%^&format=json""
+if exist %~n0-current-version.txt (
 rem echo file exist so do nothing and perform file check to compare existing files
 echo "" >nul
 ) else (
 rem echo file doesn't exist so create it and update / install the game server to the latest version
-COPY latest-version.txt current-version.txt
+COPY %~n0-latest-version.txt %~n0-current-version.txt
 goto error
 )
 rem file check compare the latest game server version with the current and if they match or miss match
-fc latest-version.txt current-version.txt >nul
+fc %~n0-latest-version.txt %~n0-current-version.txt >nul
 if errorlevel 1 goto error
 :next
 rem echo file version match with currently installed so do nothing and attempt to start the server if not already running
 rem get the running game server process id from our pid file
-set /p texte=< pid.txt
+set /p texte=< %~n0-pid.txt
 rem echo %texte%
 rem use the process id and check if it is running or not
 setlocal enableDelayedExpansion
@@ -130,7 +134,7 @@ goto loop
 rem echo pid not found pause so start running the game server and get game server pid
 rem process id in pid file not found or running so lets start the game server to get it running and store the game server pid in the file
 for /f "tokens=2 delims==; " %%a in (' wmic process call create "%exe_path%" ^| find "ProcessId" ') do set PID=%%a
-echo %PID% > pid.txt
+echo %PID% > %~n0-pid.txt
 timeout /t %interval% /NOBREAK
 goto loop
 pause
@@ -138,7 +142,7 @@ pause
 rem echo failed check so execute steamcmd to update / install the server
 rem First we have to kill the running game server pid in order to update it
 rem get the running game server process id from our pid file
-set /p texte=< pid.txt
+set /p texte=< %~n0-pid.txt
 rem echo %texte%
 rem use the process id and check if it is running or not
 setlocal enableDelayedExpansion
@@ -151,6 +155,6 @@ rem execute updater and then close when updates installed and validated
 %steamcmd_path% +login %login% +force_install_dir %install_directory% +app_update %appid% validate +quit
 rem when update complete go back to the start and check for updates on a regular basis again and launch the updated game server
 rem we cant forget to set the current version to the latest installed version
-COPY latest-version.txt current-version.txt >nul
+COPY %~n0-latest-version.txt %~n0-current-version.txt >nul
 goto loop
 pause
