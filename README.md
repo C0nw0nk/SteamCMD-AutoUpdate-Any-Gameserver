@@ -49,7 +49,8 @@ You will know if you have to set a different appid for the update url if the con
 To get the correct Auto Updater APPID just go to the store page for the game in question and it will be at the end of the URL link. http://store.steampowered.com/app/730/
 
 
-#Configuration : (EDIT | main.cmd file)
+#Configuration : (EDIT | steam.cmd file)
+
 :: This is the SteamDEV api key required for automatic updates ::
 
 :: If you do not have one you may obtain your API key from here = http://steamcommunity.com/dev/apikey ::
