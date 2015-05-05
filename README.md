@@ -51,13 +51,17 @@ To get the correct Auto Updater APPID just go to the store page for the game in 
 
 #Configuration : (EDIT | main.cmd file)
 :: This is the SteamDEV api key required for automatic updates ::
+
 :: If you do not have one you may obtain your API key from here = http://steamcommunity.com/dev/apikey ::
 
 set steamkey=
 
 :: This is the required login for SteamCMD to download updates ::
+
 :: example = login=C0nw0nk Password ::
+
 :: For most game servers you do not require this and can leave it as anonymous ::
+
 :: Certain game servers you have to use a username and password to install them ::
 
 set login=anonymous
@@ -71,7 +75,9 @@ set install_directory=C:\game-servers\CSGO
 set appid=740
 
 :: This is the app ID the url will check for updates on that game ::
+
 :: Some games this is the same as the installation appid other games it is a different numeric value ::
+
 :: if your latest-version.txt file is empty you need to make this value different to the installation appid, just go to the steam store page and get the appid from the end url ::
 
 set update_appid=730
@@ -81,7 +87,9 @@ set update_appid=730
 set steamcmd_path=c:\steamcmd\steamcmd.exe
 
 :: This is the path to the exe of the game server this allows us to close and run the server for and after a update ::
+
 :: Example ::
+
 :: set exe_path=C:\game-servers\CSGO\srcds.exe -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 ::
 
 set exe_path=
@@ -91,6 +99,7 @@ set exe_path=
 set servername=My CSGO#1 Server
 
 :: Automatic Updating Interval (in seconds) this will set how often you check the steam servers for a new update ::
+
 :: I recommend 5-10 mins ::
 
 set interval=300
