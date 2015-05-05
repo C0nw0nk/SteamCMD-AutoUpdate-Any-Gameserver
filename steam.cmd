@@ -1,7 +1,7 @@
 @ECHO OFF
 
 ::==============================::
-::  SteamCMD Auto Updater 1.2   ::
+::  SteamCMD Auto Updater 1.3   ::
 ::           Credits            ::
 ::           C0nw0nk            ::
 ::==============================::
@@ -19,14 +19,6 @@ set login=anonymous
 :: This is the directory you wish to install and keep your server updated to ::
 set install_directory=C:\game-servers\CSGO
 
-:: This is the app ID of the game server you are installing / running ::
-set appid=740
-
-:: This is the app ID the url will check for updates on that game ::
-:: Some games this is the same as the installation appid other games it is a different numeric value ::
-:: if your latest-version.txt file is empty you need to make this value different to the installation appid, just go to the steam store page and get the appid from the end url ::
-set update_appid=730
-
 :: This is for the directory where you installed steamcmd ::
 set steamcmd_path=c:\steamcmd\steamcmd.exe
 
@@ -38,8 +30,17 @@ set exe_path=
 :: This is the title of your server this will help you know what server this auto updater is running for ::
 set servername=My CSGO#1 Server
 
+:: This is the app ID of the game server you are installing / running ::
+set appid=740
+
+:: This is the app ID the url will check for updates on that game ::
+:: Some games this is the same as the installation appid other games it is a different numeric value ::
+:: if your latest-version.txt file is empty you need to make this value different to the installation appid, just go to the steam store page and get the appid from the end url ::
+set update_appid=730
+
 :: Automatic Updating Interval (in seconds) this will set how often you check the steam servers for a new update ::
 :: I recommend 5-10 mins ::
+:: Default value 60 seconds 1 minute ::
 set interval=60
 
 :: Suppress application error messages, Usualy when your game server crashes you get flagged the following error ::
@@ -66,7 +67,7 @@ set suppress_errors=true
 
 :: for the fact you have even scrolled down this far shows your persistence ::
 
-title %servername%  SteamCMD Auto Updater V1.2
+title %servername%  SteamCMD Auto Updater V1.3
 
 
 if %PROCESSOR_ARCHITECTURE%==x86 (
@@ -78,22 +79,32 @@ set curl=curl-64bit.exe
 )
 
 if "%suppress_errors%"=="false" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Windows" /v ErrorMode /t REG_DWORD /d 0 /f >nul 2>&1
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting" /v DontShowUI /t REG_DWORD /d 0 /f >nul 2>&1
 ) else (
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Windows" /v ErrorMode /t REG_DWORD /d 2 /f
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting" /v DontShowUI /t REG_DWORD /d 1 /f
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Windows" /v ErrorMode /t REG_DWORD /d 2 /f >nul 2>&1
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting" /v DontShowUI /t REG_DWORD /d 1 /f >nul 2>&1
+)
+
+if exist pid.txt (
+echo "" >nul
+) else (
+echo "" > pid.txt
 )
 
 :loop
-%curl% -o latest-version.txt ""http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=%steamkey%^&appid=%update_appid%^&format=json"" > nul
+rem curl call to get the latest game server version from the steam servers
+%curl% -o latest-version.txt ""http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=%steamkey%^&appid=%update_appid%^&format=json""
 if exist current-version.txt (
 rem echo file exist so do nothing and perform file check to compare existing files
+echo "" >nul
 ) else (
 rem echo file doesn't exist so create it and update / install the game server to the latest version
 COPY latest-version.txt current-version.txt
 goto error
 )
 rem file check compare the latest game server version with the current and if they match or miss match
-fc latest-version.txt current-version.txt > nul
+fc latest-version.txt current-version.txt >nul
 if errorlevel 1 goto error
 :next
 rem echo file version match with currently installed so do nothing and attempt to start the server if not already running
@@ -102,6 +113,14 @@ set /p texte=< pid.txt
 rem echo %texte%
 rem use the process id and check if it is running or not
 setlocal enableDelayedExpansion
+rem find process id of game server that should be running and if status is not responding or unknown it means the server has crashed
+set "cmd2=tasklist.exe /fi "pid eq %texte%" /fi "status ne running""
+for /F "delims=*" %%p in ('!cmd2! ^| findstr "%texte%" ') do (
+rem echo pid running but frozen or not responding so terminate
+taskkill /PID %texte%
+goto next
+)
+rem check process id to see if running and active
 set "cmd=tasklist.exe /FI "pid eq %texte%""
 for /F "delims=*" %%p in ('!cmd! ^| findstr "%texte%" ') do (
 rem echo pid running and found %%p
@@ -132,6 +151,6 @@ rem execute updater and then close when updates installed and validated
 %steamcmd_path% +login %login% +force_install_dir %install_directory% +app_update %appid% validate +quit
 rem when update complete go back to the start and check for updates on a regular basis again and launch the updated game server
 rem we cant forget to set the current version to the latest installed version
-COPY latest-version.txt current-version.txt > nul
+COPY latest-version.txt current-version.txt >nul
 goto loop
 pause
