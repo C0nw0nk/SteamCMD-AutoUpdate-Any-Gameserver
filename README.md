@@ -106,4 +106,4 @@ set servername=My CSGO#1 Server
 set interval=300
 
 Please drop a reply if you have a question / issue i shall try to help you as much as i can.
-CURL (Generic) 32bit and 64bit executable from | http://curl.haxx.se/download.html
+CURL (Generic) 32bit and 64bit executable from | http://curl.haxx.se/download.html#Win32
