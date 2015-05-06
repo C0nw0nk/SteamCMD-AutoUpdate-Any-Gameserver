@@ -1,10 +1,11 @@
 @ECHO OFF
 
 ::==============================::
-::  SteamCMD Auto Updater 1.4   ::
+::  SteamCMD Auto Updater 1.5   ::
 ::           Credits            ::
 ::           C0nw0nk            ::
 ::==============================::
+:: https://github.com/C0nw0nk/SteamCMD-AutoUpdate-Any-Gameserver ::
 
 :: This is the SteamDEV api key required for automatic updates ::
 :: If you do not have one you may obtain your API key from here = http://steamcommunity.com/dev/apikey ::
@@ -20,7 +21,8 @@ set login=anonymous
 set install_directory=C:\game-servers\CSGO
 
 :: This is for the directory where you installed steamcmd ::
-set steamcmd_path=c:\steamcmd\steamcmd.exe
+:: http://media.steampowered.com/installer/steamcmd.zip ::
+set steamcmd_path=C:\steamcmd\steamcmd.exe
 
 :: This is the path to the exe of the game server this allows us to close and run the server for and after a update ::
 :: Example ::
@@ -55,6 +57,13 @@ set suppress_errors=true
 :: Example ::
 :: set curl_dir=C:\path\curl
 
+:: CURL 32bit executable name ::
+:: Downloaded from http://curl.haxx.se/download.html#Win32 ::
+set curl32bit=curl-32bit.exe
+:: CURL 64bit executable name ::
+:: Downloaded from http://curl.haxx.se/download.html#Win64 ::
+set curl64bit=curl-64bit.exe
+
 :: Don't edit anything past this point ::
 
 :: I AM SERIOUS DO NOT TOUCH ::
@@ -71,15 +80,17 @@ set suppress_errors=true
 
 :: for the fact you have even scrolled down this far shows your persistence ::
 
-title %servername%  SteamCMD Auto Updater V1.4
+title %servername%  SteamCMD Auto Updater V1.5
 
+rem set window and text color
+color 8a
 
 if %PROCESSOR_ARCHITECTURE%==x86 (
 rem echo OS is 32bit
-set curl=curl-32bit.exe
+set curl=%curl_dir%%curl32bit%
 ) else (
 rem echo OS is 64bit
-set curl=curl-64bit.exe
+set curl=%curl_dir%%curl64bit%
 )
 
 if "%suppress_errors%"=="false" (
@@ -96,9 +107,58 @@ echo "" >nul
 echo "" > %~n0-pid.txt
 )
 
+FOR /f %%i IN ("%install_directory%") DO (
+set filedrive=%%~di
+set filepath=%%~pi
+set filename=%%~ni
+set fileextension=%%~xi
+)
+if exist %filedrive%%filepath%%filename% (
+echo file path exist >nul
+) else (
+echo create install_directory since it does not exist
+mkdir %filedrive%%filepath%%filename%
+)
+
+FOR /f %%i IN ("%steamcmd_path%") DO (
+set filedrive=%%~di
+set filepath=%%~pi
+set filename=%%~ni
+set fileextension=%%~xi
+)
+set downloadurl=http://media.steampowered.com/installer/steamcmd.zip
+set downloadpath=%filedrive%%filepath%steamcmd.zip
+if exist %filedrive%%filepath%%filename%%fileextension% (
+echo file path exist >nul
+) else (
+echo create steamcmd_path since it does not exist
+mkdir %filedrive%%filepath%
+echo open powershell download steamcmd close powershell open command prompt and run this script again
+%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "& {Import-Module BitsTransfer;Start-BitsTransfer '%downloadurl%' '%downloadpath%';$shell = new-object -com shell.application;$zip = $shell.NameSpace('%downloadpath%');foreach($item in $zip.items()){$shell.Namespace('%filedrive%%filepath%').copyhere($item);};remove-item '%downloadpath%';%WINDIR%\System32\cmd.exe /c call '%~dpnx0';}
+pause
+)
+
+FOR /f %%i IN ("%curl%") DO (
+set filedrive=%%~di
+set filepath=%%~pi
+set filename=%%~ni
+set fileextension=%%~xi
+)
+set downloadurl=https://www.dropbox.com/s/olhokot9tpalm0p/curl.zip?dl=1
+set downloadpath=%filedrive%%filepath%curl.zip
+if exist %curl% (
+echo file path exist >nul
+) else (
+echo curl is missing so download and make directory if needed
+mkdir %filedrive%%filepath%
+echo open powershell download curl close powershell open command prompt and run this script again
+%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "& {Import-Module BitsTransfer;Start-BitsTransfer '%downloadurl%' '%downloadpath%';$shell = new-object -com shell.application;$zip = $shell.NameSpace('%downloadpath%');foreach($item in $zip.items()){$shell.Namespace('%filedrive%%filepath%').copyhere($item);};remove-item '%downloadpath%';%WINDIR%\System32\cmd.exe /c call '%~dpnx0';}
+pause
+)
+
 :loop
 rem curl call to get the latest game server version from the steam servers
-%curl_dir%%curl% -o %~n0-latest-version.txt ""http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=%steamkey%^&appid=%update_appid%^&format=json""
+%curl% -o %~n0-latest-version.txt ""http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=%steamkey%^&appid=%update_appid%^&format=json""
 if exist %~n0-current-version.txt (
 rem echo file exist so do nothing and perform file check to compare existing files
 echo "" >nul
