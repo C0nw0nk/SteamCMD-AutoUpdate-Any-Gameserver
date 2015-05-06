@@ -134,7 +134,7 @@ echo file path exist >nul
 echo create steamcmd_path since it does not exist
 mkdir %filedrive%%filepath%
 echo open powershell download steamcmd close powershell open command prompt and run this script again
-%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "& {Import-Module BitsTransfer;Start-BitsTransfer '%downloadurl%' '%downloadpath%';$shell = new-object -com shell.application;$zip = $shell.NameSpace('%downloadpath%');foreach($item in $zip.items()){$shell.Namespace('%filedrive%%filepath%').copyhere($item);};remove-item '%downloadpath%';%WINDIR%\System32\cmd.exe /c call '%~dpnx0';}
+%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "& {Import-Module BitsTransfer;Start-BitsTransfer '%downloadurl%' '%downloadpath%';$shell = new-object -com shell.application;$zip = $shell.NameSpace('%downloadpath%');foreach($item in $zip.items()){$shell.Namespace('%filedrive%%filepath%').copyhere($item);};remove-item '%downloadpath%';%WINDIR%\System32\cmd.exe /c call '%~dpnx0';}"
 pause
 )
 
@@ -152,9 +152,11 @@ echo file path exist >nul
 echo curl is missing so download and make directory if needed
 mkdir %filedrive%%filepath%
 echo open powershell download curl close powershell open command prompt and run this script again
-%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "& {Import-Module BitsTransfer;Start-BitsTransfer '%downloadurl%' '%downloadpath%';$shell = new-object -com shell.application;$zip = $shell.NameSpace('%downloadpath%');foreach($item in $zip.items()){$shell.Namespace('%filedrive%%filepath%').copyhere($item);};remove-item '%downloadpath%';%WINDIR%\System32\cmd.exe /c call '%~dpnx0';}
+%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe -Command "& {Import-Module BitsTransfer;Start-BitsTransfer '%downloadurl%' '%downloadpath%';$shell = new-object -com shell.application;$zip = $shell.NameSpace('%downloadpath%');foreach($item in $zip.items()){$shell.Namespace('%filedrive%%filepath%').copyhere($item);};remove-item '%downloadpath%';%WINDIR%\System32\cmd.exe /c call '%~dpnx0';}"
 pause
 )
+
+goto error
 
 :loop
 rem curl call to get the latest game server version from the steam servers
