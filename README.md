@@ -22,8 +22,11 @@ Should work with both Normal versions of Windows and Server versions.
 Suppress application hung messages to prevent server crash problems.
 
 #Requirements :
-You need to have a SteamDEV API key you can obtain one from the following link http://steamcommunity.com/dev/apikey
+You need to have a SteamDEV API key you can obtain one from the following link | http://steamcommunity.com/dev/apikey
+
 Certain servers for specific games require you to use a login on SteamCMD so specify your login in the script.
+
+SteamCMD.exe can be downloaded from | http://media.steampowered.com/installer/steamcmd.zip
 
 #F.A.Q
 I edited beyond the "Do not edit" point and now it does not work ?
