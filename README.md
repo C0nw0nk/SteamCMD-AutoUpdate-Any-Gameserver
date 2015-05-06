@@ -1,7 +1,7 @@
 # SteamCMD-AutoUpdate-Any-Gameserver
 
 Download latest :
-https://mega.co.nz/#!8cxUXLqZ!JrMegCgHpW8K4038lc5q2_E8dWsHQJkL77mx_Z9GQsg
+https://www.dropbox.com/s/3mrxcefydheqgyz/AutoUpdate%20SteamCMD%20CURL.zip?dl=1
 
 Windows SteamCMD to automaticly update and install any game server
 
