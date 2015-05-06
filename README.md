@@ -41,9 +41,9 @@ You can download SteamCMD from here : http://media.steampowered.com/installer/st
 There are two different appid's you might have to specify for your game server to automaticly update. Since some games for example CS:GO has a seperate appid for the updater url than the appid you would use to install the game server as show below.
 
 Install CS:GO server appid = 740
-    set appid=740
+ set appid=740
 Auto Update URL appid = 730
-    set update_appid=730
+ set update_appid=730
 
 You will know if you have to set a different appid for the update url if the contents of your latest-version.txt show this.
 
