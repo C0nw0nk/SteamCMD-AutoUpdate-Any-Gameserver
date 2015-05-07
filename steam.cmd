@@ -107,6 +107,10 @@ echo "" >nul
 echo "" > %~n0-pid.txt
 )
 
+mkdir "%install_directory%" >nul 2>&1
+mkdir "%steamcmd_path%" >nul 2>&1
+mkdir "%exe_path%" >nul 2>&1
+
 FOR /f %%i IN ("%install_directory%") DO (
 set filedrive=%%~di
 set filepath=%%~pi
