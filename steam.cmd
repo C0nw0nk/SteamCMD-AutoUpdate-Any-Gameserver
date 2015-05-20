@@ -101,12 +101,6 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Windows" /v ErrorMode /
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting" /v DontShowUI /t REG_DWORD /d 1 /f >nul 2>&1
 )
 
-if exist %~n0-pid.txt (
-echo "" >nul
-) else (
-echo "" > %~n0-pid.txt
-)
-
 FOR /f %%i IN ("%install_directory%") DO (
 set filedrive=%%~di
 set filepath=%%~pi
