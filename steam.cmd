@@ -52,6 +52,7 @@ set interval=60
 :: "srcds.exe has stopped working. A problem caused the program to stop working correctly. Please close the program" ::
 :: With the following setting the script will prevent all these errors and get your server back online as soon as a crash occurs ::
 :: set to false to disable this feature ::
+:: Use -nocrashdialog in exe_path to also help suppress server crashes ::
 set suppress_errors=true
 
 :: CURL Directory you may define the installation path of CURL if you moved the executables to another directory ::
