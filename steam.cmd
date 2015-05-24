@@ -26,7 +26,7 @@ set steamcmd_path=C:\steamcmd\steamcmd.exe
 
 :: This is the path to the exe of the game server this allows us to close and run the server for and after a update ::
 :: Example ::
-:: set exe_path=C:\game-servers\CSGO\srcds.exe -game csgo -console -usercon +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 ::
+:: set exe_path=C:\game-servers\CSGO\srcds.exe -game csgo -console -nocrashdialog -usercon +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 ::
 set exe_path=
 
 :: This is the title of your server this will help you know what server this auto updater is running for ::
