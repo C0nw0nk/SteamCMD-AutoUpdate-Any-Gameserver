@@ -25,6 +25,7 @@ set install_directory=C:\game-servers\CSGO
 set steamcmd_path=C:\steamcmd\steamcmd.exe
 
 :: This is the path to the exe of the game server this allows us to close and run the server for and after a update ::
+:: Other command line variables for srcds can be found here https://developer.valvesoftware.com/wiki/Command_Line_Options ::
 :: Example ::
 :: set exe_path=C:\game-servers\CSGO\srcds.exe -game csgo -console -nocrashdialog -port 27015 +clientport 27005 +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 ::
 set exe_path=
