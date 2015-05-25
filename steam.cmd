@@ -233,7 +233,7 @@ echo Shell.SendKeys "say Server will shut down in 60 seconds for updates!" >>tem
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 30
+timeout /t 30 /NOBREAK
 goto :console_vbs2
 :console_vbs2
 echo Option Explicit >temp.vbs
@@ -247,7 +247,7 @@ echo Shell.SendKeys "say Server will shut down in 30 seconds for updates!" >>tem
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 20
+timeout /t 20 /NOBREAK
 goto :console_vbs3
 :console_vbs3
 echo Option Explicit >temp.vbs
@@ -261,7 +261,7 @@ echo Shell.SendKeys "say Server will shut down in 10 seconds for updates!" >>tem
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs4
 :console_vbs4
 echo Option Explicit >temp.vbs
@@ -275,7 +275,7 @@ echo Shell.SendKeys "say Server will shut down in 9 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs5
 :console_vbs5
 echo Option Explicit >temp.vbs
@@ -289,7 +289,7 @@ echo Shell.SendKeys "say Server will shut down in 8 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs6
 :console_vbs6
 echo Option Explicit >temp.vbs
@@ -303,7 +303,7 @@ echo Shell.SendKeys "say Server will shut down in 7 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs7
 :console_vbs7
 echo Option Explicit >temp.vbs
@@ -317,7 +317,7 @@ echo Shell.SendKeys "say Server will shut down in 6 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs8
 :console_vbs8
 echo Option Explicit >temp.vbs
@@ -331,7 +331,7 @@ echo Shell.SendKeys "say Server will shut down in 5 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs9
 :console_vbs9
 echo Option Explicit >temp.vbs
@@ -345,7 +345,7 @@ echo Shell.SendKeys "say Server will shut down in 4 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs10
 :console_vbs10
 echo Option Explicit >temp.vbs
@@ -359,7 +359,7 @@ echo Shell.SendKeys "say Server will shut down in 3 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs11
 :console_vbs11
 echo Option Explicit >temp.vbs
@@ -373,7 +373,7 @@ echo Shell.SendKeys "say Server will shut down in 2 seconds for updates!" >>temp
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs12
 :console_vbs12
 echo Option Explicit >temp.vbs
@@ -387,7 +387,7 @@ echo Shell.SendKeys "say Server will shut down in 1 second for updates!" >>temp.
 echo Shell.SendKeys "{ENTER}" >>temp.vbs
 echo Next >>temp.vbs
 cscript //nologo temp.vbs & del temp.vbs
-timeout /t 1
+timeout /t 1 /NOBREAK
 goto :console_vbs13
 :console_vbs13
 echo Option Explicit >temp.vbs
