@@ -226,7 +226,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 60 seconds for updates!" >>temp.vbs
@@ -240,7 +240,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 30 seconds for updates!" >>temp.vbs
@@ -254,7 +254,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 10 seconds for updates!" >>temp.vbs
@@ -268,7 +268,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 9 seconds for updates!" >>temp.vbs
@@ -282,7 +282,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 8 seconds for updates!" >>temp.vbs
@@ -296,7 +296,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 7 seconds for updates!" >>temp.vbs
@@ -310,7 +310,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 6 seconds for updates!" >>temp.vbs
@@ -324,7 +324,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 5 seconds for updates!" >>temp.vbs
@@ -338,7 +338,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 4 seconds for updates!" >>temp.vbs
@@ -352,7 +352,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 3 seconds for updates!" >>temp.vbs
@@ -366,7 +366,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 2 seconds for updates!" >>temp.vbs
@@ -380,7 +380,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server will shut down in 1 second for updates!" >>temp.vbs
@@ -394,7 +394,7 @@ echo Option Explicit >temp.vbs
 echo Dim Shell, WMI, wql, process >>temp.vbs
 echo Set Shell = CreateObject("WScript.Shell") >>temp.vbs
 echo Set WMI = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2") >>temp.vbs
-echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = '%texte%'" >>temp.vbs
+echo wql = "SELECT ProcessId FROM Win32_Process WHERE ProcessId = %texte%" >>temp.vbs
 echo For Each process In WMI.ExecQuery(wql) >>temp.vbs
 echo Shell.AppActivate process.ProcessId >>temp.vbs
 echo Shell.SendKeys "say Server is shutting down to install updates, Goodbye!" >>temp.vbs
