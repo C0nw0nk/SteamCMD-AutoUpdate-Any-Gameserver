@@ -28,7 +28,7 @@ set steamcmd_path=C:\steamcmd\steamcmd.exe
 :: Other command line variables for srcds can be found here https://developer.valvesoftware.com/wiki/Command_Line_Options ::
 :: Example ::
 :: set exe_path=C:\game-servers\CSGO\srcds.exe -game csgo -console -nocrashdialog -port 27015 +clientport 27005 +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2 ::
-set exe_path=
+set exe_path=C:\game-servers\CSGO\srcds.exe -game csgo -console -nocrashdialog -port 27015 +clientport 27005 +game_type 0 +game_mode 0 +mapgroup mg_active +map de_dust2
 
 :: This is the title of your server this will help you know what server this auto updater is running for ::
 set servername=My CSGO#1 Server
