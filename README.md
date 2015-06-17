@@ -9,13 +9,13 @@ This project reworks C0nw0nk's original concept to focus on ARK:Survival Evolved
 You can find C0nw0nk's project here - https://github.com/C0nw0nk/SteamCMD-AutoUpdate-Any-Gameserver
 
 #Features :
-Works with both 32bit and 64bit architecture.
-Installs ARK game server.
-Checks for Steam patches automatically (define interval in seconds)
-Should work with both Normal versions of Windows and Server versions.
-Suppress application hung messages to prevent server crash problems
-Checks for ARK server running and restarts if process not found
-twitter restart notifications (Dependencies detailed below)
+- Works with both 32bit and 64bit architecture.
+- Installs ARK game server.
+- Checks for Steam patches automatically (define interval in seconds)
+- Should work with both Normal versions of Windows and Server versions.
+- Suppress application hung messages to prevent server crash problems
+- Checks for ARK server running and restarts if process not found
+- twitter restart notifications (Dependencies detailed below)
 
 #Requirements :
 You need to have a SteamDEV API key you can obtain one from the following link | http://steamcommunity.com/dev/apikey
