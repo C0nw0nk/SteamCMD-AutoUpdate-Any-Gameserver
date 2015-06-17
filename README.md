@@ -21,8 +21,8 @@ You can find C0nw0nk's project here - https://github.com/C0nw0nk/SteamCMD-AutoUp
 You need to have a SteamDEV API key you can obtain one from the following link | http://steamcommunity.com/dev/apikey
 
 For the twitter updates you need to install the below:
-- Twitter CLI "t" by Sferik - https://github.com/sferik/t
-- Ruby 2.2 
+- Twitter CLI "t" by Sferik | https://github.com/sferik/t
+- Ruby 2.2 which can be downloaded from | https://www.ruby-lang.org/en/downloads/
 - SteamCMD.exe which can be downloaded from | http://media.steampowered.com/installer/steamcmd.zip
 
 #F.A.Q
