@@ -38,12 +38,15 @@ Maximum setlocal recursion level reached error - this is inhereited from the ori
 Download the dependencies defined above and setup in a directory structure similar to this:
 
 \Servers\ARK
+
 \Servers\Steamcmd\steamcmd.exe
+
 \Servers\arkupdate.cmd
+
 Edit the config to your liking
 
 
-#Configuration : (EDIT | steam.cmd file)
+#Configuration : (EDIT | arkupdate.cmd file)
 
 In order to configure the script just edit the "arkupdate.cmd" file and define your install directory and server startup parameters.
 
