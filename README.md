@@ -1,29 +1,29 @@
-# SteamCMD-AutoUpdate-Any-Gameserver
+# SteamCMD-AutoUpdate-ARK
 
-Windows SteamCMD to automaticly update and install any game server
+Windows SteamCMD to automaticly update and run ARK servers.
 
 I am sure all of you on windows have been seeking for this for a long time.
 
-This will work for all game servers and keep them all automaticly updated. You may also use this to freshly and easly install game servers too. Inside my script i have written a little a detail on each function and what it is executing and the result. For those of you who are command line enthusiasts like myself.
+This project reworks C0nw0nk's original concept to focus on ARK:Survival Evolved and introduce patch automation and an alert system since that game has no form of RCON access and frequent patches.
 
-#Why did i bother to make this ?
-I got borred and when i get borred i have to do something productive this being the result. (I am a workaholic)
-
-It is a command line file what you should replace your existing .bat / .cmd scripts with, One automatic updater per each game server you wish to run.
+You can find C0nw0nk's project here - https://github.com/C0nw0nk/SteamCMD-AutoUpdate-Any-Gameserver
 
 #Features :
-Works with both 32bit and 64bit architecture.
-Install game server.
-Keep server updated on a interval (interval of updates is defined in seconds).
-Should work with both Normal versions of Windows and Server versions.
-Suppress application hung messages to prevent server crash problems.
+- Works with both 32bit and 64bit architecture.
+- Installs ARK game server.
+- Checks for Steam patches automatically (define interval in seconds)
+- Should work with both Normal versions of Windows and Server versions.
+- Suppress application hung messages to prevent server crash problems
+- Checks for ARK server running and restarts if process not found
+- twitter restart notifications (Dependencies detailed below)
 
 #Requirements :
 You need to have a SteamDEV API key you can obtain one from the following link | http://steamcommunity.com/dev/apikey
 
-Certain servers for specific games require you to use a login on SteamCMD so specify your login in the script.
-
-SteamCMD.exe can be downloaded from | http://media.steampowered.com/installer/steamcmd.zip
+For the twitter updates you need to install the below:
+- Twitter CLI "t" by Sferik | https://github.com/sferik/t
+- Ruby 2.2 which can be downloaded from | https://www.ruby-lang.org/en/downloads/
+- SteamCMD.exe which can be downloaded from | http://media.steampowered.com/installer/steamcmd.zip
 
 #F.A.Q
 I edited beyond the "Do not edit" point and now it does not work ?
@@ -32,37 +32,25 @@ I told you in the file not to touch anything beyond that point. (Just redownload
 #Known bugs / issues :
 If your game server is to crash you may have to wait for the next automatic update check as defined by the interval so the script checks if the game server is infact running or not. (Current soloution is to keep the update interval to a max of 10-15mins so if your server crashes it is not offline for long) set interval=60 (1 minute)
 
-Certain Appid's for installation of game server will be different to the update id due to Steam's DEV API not containing the latest avaliable server version (yet!?) Example : http://api.steampowered.com/ISteamUs...40&format=json
-
+Maximum setlocal recursion level reached error - this is inhereited from the original code and I'm working on a fix.
 
 #How to use :
-You can download SteamCMD from here : http://media.steampowered.com/installer/steamcmd.zip
+Download the dependencies defined above and setup in a directory structure similar to this:
 
-There are two different appid's you might have to specify for your game server to automaticly update. Since some games for example CS:GO has a seperate appid for the updater url than the appid you would use to install the game server as show below.
+\Servers\ARK
 
-Install CS:GO server appid = 740
+\Servers\Steamcmd\steamcmd.exe
 
-set appid=740
+\Servers\arkupdate.cmd
 
-Auto Update URL appid = 730
-
-set update_appid=730
-
-You will know if you have to set a different appid for the update url if the contents of your latest-version.txt show this.
-
-{
-    "game": {
-
-    }
-}
-
-To get the correct Auto Updater APPID just go to the store page for the game in question and it will be at the end of the URL link. http://store.steampowered.com/app/730/
+Edit the config to your liking
 
 
-#Configuration : (EDIT | steam.cmd file)
+#Configuration : (EDIT | arkupdate.cmd file)
 
-In order to configure the script just edit the "steam.cmd" file and define your install directory and server type.
+In order to configure the script just edit the "arkupdate.cmd" file and define your install directory and server startup parameters.
 
 Please drop a reply if you have a question / issue i shall try to help you as much as i can.
 
-CURL (Generic) 32bit and 64bit executable from | http://curl.haxx.se/download.html#Win32
+Notes / Changes
+CURL is no longer required for the auto update functions.
