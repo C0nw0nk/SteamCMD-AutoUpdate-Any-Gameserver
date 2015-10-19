@@ -87,6 +87,8 @@ title %servername%  SteamCMD Auto Updater V1.6
 rem set window and text color
 color 8a
 
+setlocal enableDelayedExpansion
+
 if %PROCESSOR_ARCHITECTURE%==x86 (
 rem echo OS is 32bit
 set curl=%curl_dir%%curl32bit%
@@ -174,7 +176,6 @@ rem get the running game server process id from our pid file
 set /p texte=< %~n0-pid.txt
 rem echo %texte%
 rem use the process id and check if it is running or not
-setlocal enableDelayedExpansion
 rem find process id of game server that should be running and if status is not responding or unknown it means the server has crashed
 set "cmd2=tasklist.exe /fi "pid eq %texte%" /fi "status ne running""
 for /F "delims=*" %%p in ('!cmd2! ^| findstr "%texte%" ') do (
@@ -203,7 +204,6 @@ rem get the running game server process id from our pid file
 set /p texte=< %~n0-pid.txt
 rem echo %texte%
 rem use the process id and check if it is running or not
-setlocal enableDelayedExpansion
 set "cmd=tasklist.exe /FI "pid eq %texte%""
 for /F "delims=*" %%p in ('!cmd! ^| findstr "%texte%" ') do (
 rem echo pid of game server running and found so kill / end the process %%p
@@ -218,7 +218,6 @@ goto loop
 pause
 :shutdown_server
 set /p texte=< %~n0-pid.txt
-setlocal enableDelayedExpansion
 set "cmd=tasklist.exe /FI "pid eq %texte%""
 for /F "delims=*" %%p in ('!cmd! ^| findstr "%texte%" ') do (goto :console_vbs1)
 :console_vbs1
