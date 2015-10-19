@@ -28,6 +28,8 @@ Should work with both Normal versions of Windows and Server versions.
 
 Suppress application hung messages to prevent server crash problems.
 
+Announces to players ingame that the server is shutting down/restarting for updates.
+
 
 #Requirements :
 You need to have a SteamDEV API key you can obtain one from the following link :
