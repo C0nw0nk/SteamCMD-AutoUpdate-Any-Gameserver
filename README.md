@@ -65,7 +65,7 @@ To get the correct Auto Updater APPID just go to the store page for the game in 
 
 #Configuration : (EDIT | steam.cmd file)
 
-In order to configure the script just edit the "steam.cmd" file and define your install directory and server type.
+In order to configure the script just edit the "*.cmd" file and define your install directory and server type.
 
 Please drop a reply if you have a question / issue i shall try to help you as much as i can.
 
