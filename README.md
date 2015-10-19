@@ -12,6 +12,8 @@ I got borred and when i get borred i have to do something productive this being 
 It is a command line file what you should replace your existing .bat / .cmd scripts with, One automatic updater per each game server you wish to run.
 
 #Features :
+steam.cmd is only dependant upon VBScript.
+steam-curl.cmd is dependant upon CURL and Windows Powershell.
 Works with both 32bit and 64bit architecture.
 Install game server.
 Keep server updated on a interval (interval of updates is defined in seconds).
@@ -36,7 +38,9 @@ Certain Appid's for installation of game server will be different to the update 
 
 
 #How to use :
-You can download SteamCMD from here : http://media.steampowered.com/installer/steamcmd.zip
+Choose either steam.cmd or steam-CURL.cmd the steam.cmd file uses VBScript and steam-curl.cmd is dependant on CURL and Windows Powershell.
+
+Both will automaticly download and install game servers upon running either script.
 
 There are two different appid's you might have to specify for your game server to automaticly update. Since some games for example CS:GO has a seperate appid for the updater url than the appid you would use to install the game server as show below.
 
