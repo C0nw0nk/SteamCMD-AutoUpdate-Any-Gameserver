@@ -18,6 +18,8 @@ steam.cmd is only dependant upon VBScript.
 
 steam-curl.cmd is dependant upon CURL, VBScript and Windows Powershell.
 
+Will download extract and install steamcmd.exe if it does not exist in the directory specified from http://media.steampowered.com/installer/steamcmd.zip
+
 Works with both 32bit and 64bit architecture.
 
 Install game server.
