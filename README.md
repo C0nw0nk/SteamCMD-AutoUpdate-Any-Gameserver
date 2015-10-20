@@ -16,7 +16,7 @@ It is a command line file what you should replace your existing .bat / .cmd scri
 #Features :
 steam.cmd is only dependant upon VBScript.
 
-steam-curl.cmd is dependant upon CURL and Windows Powershell.
+steam-curl.cmd is dependant upon CURL, VBScript and Windows Powershell.
 
 Works with both 32bit and 64bit architecture.
 
