@@ -79,11 +79,13 @@ set update_appid=730
 
 You will know if you have to set a different appid for the update url if the contents of your latest-version.txt show this.
 
+```
 {
     "game": {
 
     }
 }
+```
 
 To get the correct Auto Updater APPID just go to the store page for the game in question and it will be at the end of the URL link.
 
