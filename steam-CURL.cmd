@@ -180,7 +180,7 @@ rem find process id of game server that should be running and if status is not r
 set "cmd2=tasklist.exe /fi "pid eq %texte%" /fi "status ne running""
 for /F "delims=*" %%p in ('!cmd2! ^| findstr "%texte%" ') do (
 rem echo pid running but frozen or not responding so terminate
-taskkill /PID %texte%
+taskkill /PID %texte% /F
 goto next
 )
 rem check process id to see if running and active
@@ -207,7 +207,7 @@ rem use the process id and check if it is running or not
 set "cmd=tasklist.exe /FI "pid eq %texte%""
 for /F "delims=*" %%p in ('!cmd! ^| findstr "%texte%" ') do (
 rem echo pid of game server running and found so kill / end the process %%p
-taskkill /PID %texte%
+taskkill /PID %texte% /F
 )
 rem execute updater and then close when updates installed and validated
 %steamcmd_path% +login %login% +force_install_dir %install_directory% +app_update %appid% validate +quit
