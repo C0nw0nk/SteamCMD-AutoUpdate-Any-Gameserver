@@ -7,13 +7,13 @@ I am sure all of you on windows have been seeking for this for a long time.
 This will work for all game servers and keep them all automaticly updated. You may also use this to freshly and easly install game servers too. Inside my script i have written a little a detail on each function and what it is executing and the result. For those of you who are command line enthusiasts like myself.
 
 
-#Why did i bother to make this ?
+# Why did i bother to make this ?
 I got borred and when i get borred i have to do something productive this being the result. (I am a workaholic)
 
 It is a command line file what you should replace your existing .bat / .cmd scripts with, One automatic updater per each game server you wish to run.
 
 
-#Features :
+# Features :
 steam.cmd is only dependant upon VBScript.
 
 steam-curl.cmd is dependant upon CURL, VBScript and Windows Powershell.
@@ -33,7 +33,7 @@ Suppress application hung messages to prevent server crash problems.
 Announces to players ingame that the server is shutting down/restarting for updates.
 
 
-#Requirements :
+# Requirements :
 You need to have a SteamDEV API key you can obtain one from the following link :
 
 http://steamcommunity.com/dev/apikey
@@ -45,22 +45,22 @@ SteamCMD.exe downloaded from :
 http://media.steampowered.com/installer/steamcmd.zip
 
 
-#F.A.Q
+# F.A.Q
 I edited beyond the "Do not edit" point and now it does not work ?
 I told you in the file not to touch anything beyond that point. (Just redownload the script to get a default working version.)
 
 
-#Known bugs / issues :
+# Known bugs / issues :
 If your game server is to crash you may have to wait for the next automatic update check as defined by the interval so the script checks if the game server is infact running or not. (Current soloution is to keep the update interval to a max of 10-15mins so if your server crashes it is not offline for long) set interval=60 (1 minute)
 
 Certain Appid's for installation of game server will be different to the update id due to Steam's DEV API not containing the latest avaliable server version (yet!?)
 
-Example :
+### Example :
 
 http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=YOURKEYHERE&appid=740&format=json
 
 
-#How to use :
+# How to use :
 Choose either steam.cmd or steam-CURL.cmd
 
 The steam.cmd file uses VBScript and steam-curl.cmd is dependant on CURL and Windows Powershell.
@@ -92,7 +92,7 @@ To get the correct Auto Updater APPID just go to the store page for the game in 
 http://store.steampowered.com/app/730/
 
 
-#Configuration : (EDIT | steam.cmd file)
+# Configuration : (EDIT | steam.cmd file)
 
 In order to configure the script just edit the "*.cmd" file and define your install directory and server type.
 
