@@ -14,9 +14,9 @@ It is a command line file what you should replace your existing .bat / .cmd scri
 
 
 # Features :
-steam.cmd is only dependant upon VBScript.
+`steam.cmd` is only dependant upon VBScript.
 
-steam-curl.cmd is dependant upon CURL, VBScript and Windows Powershell.
+`steam-curl.cmd` is dependant upon CURL, VBScript and Windows Powershell.
 
 Will download extract and install steamcmd.exe if it does not exist in the directory specified from http://media.steampowered.com/installer/steamcmd.zip
 
@@ -61,7 +61,7 @@ http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=YOURKEYHERE
 
 
 # How to use :
-Choose either steam.cmd or steam-CURL.cmd
+Choose either `steam.cmd` or `steam-CURL.cmd`
 
 The steam.cmd file uses VBScript and steam-curl.cmd is dependant on CURL and Windows Powershell.
 
@@ -71,11 +71,11 @@ There are two different appid's you might have to specify for your game server t
 
 Install CS:GO server appid = 740
 
-set appid=740
+`set appid=740`
 
 Auto Update URL appid = 730
 
-set update_appid=730
+`set update_appid=730`
 
 You will know if you have to set a different appid for the update url if the contents of your latest-version.txt show this.
 
