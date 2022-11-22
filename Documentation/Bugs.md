@@ -1,12 +1,37 @@
 
-# Known bugs / issues :
+# Known Bugs
 
-If your game server is to crash you may have to wait for the next automatic update check as defined by the interval so the script checks if the game server is infact running or not. (Current soloution is to keep the update interval to a max of 10-15mins so if your server crashes it is not offline for long) set interval=60 (1 minute)
+<br>
 
-Certain Appid's for installation of game server will be different to the update id due to Steam's DEV API not containing the latest avaliable server version (yet!?)
+### Crashing Game Server
 
-### Example :
+A crashed game server will wait until the next automatic update check  
+before it restarts, as it only then checks if the server is actually running.
 
-http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=YOURKEYHERE&appid=740&format=json
+<br>
 
+#### Solution
 
+Keep the update interval to a maximum of about 10 - 15 minutes,  
+doing this will ensure that your server won't be offline for long.
+
+`interval=60` sets the interval to 1 minute.
+
+<br>
+<br>
+
+### AppId Mismatches
+
+Certain app ids for the installation of game servers can be different to  
+their update Id, this is due to Steam's DEV API not containing the latest  
+available server version at the time.
+
+<br>
+
+#### Example
+
+```
+http://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v2/?key=< API Key >&appid=740&format=json
+```
+
+<br>
