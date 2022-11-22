@@ -1,8 +1,10 @@
 
+# FAQ
 
-# F.A.Q
+<br>
 
-I edited beyond the "Do not edit" point and now it does not work ?
-I told you in the file not to touch anything beyond that point. (Just redownload the script to get a default working version.)
+### I accidentally edited beyond the  `Do not edit`  point.
 
+Simple download or copy the code from the repository again and paste over your changes.
 
+<br>
