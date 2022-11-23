@@ -16,14 +16,14 @@ This script utilizes **VBScript**.
 
 ### [`steam-CURL.cmd`][Script Curl]
 
-This script is dependant on **CURL** and **Windows Powershell**.
+This script is dependent on **CURL** and **Windows Powershell**.
 
 <br>
 <br>
 
 ## App Ids
 
-*You can search for a games appId on **[SteamDB]**.*
+*You can search for a game's appId on **[SteamDB]**.*
 
 ```bat
 set appid=740

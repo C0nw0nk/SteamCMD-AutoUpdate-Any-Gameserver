@@ -1,21 +1,41 @@
 
-# Requirements :
+# Setup
 
-You need to have a SteamDEV API key you can obtain one from the following link :
+<br>
 
-http://steamcommunity.com/dev/apikey
+## Requirements
 
-Certain servers for specific games require you to use a login on SteamCMD so specify your login in the script.
+<br>
 
-SteamCMD.exe downloaded from :
+-   You require a **[SteamDev API Key][Key]**.
 
-http://media.steampowered.com/installer/steamcmd.zip
+    <br>
+    
+-   The scripts depend on **[SteamCMD]**.
 
-# Configuration : (EDIT | steam.cmd file)
+    <br>
 
-In order to configure the script just edit the "*.cmd" file and define your install directory and server type.
+-   For the CURL variant you need **[Curl]**.
 
-Please drop a reply if you have a question / issue i shall try to help you as much as i can.
+    <br>
+
+-   Some games require you to login to  
+    download their server, for this simply  
+    configure the login data in the script.
+
+<br>
+<br>
+
+## Configuration
+
+Configuring the setup is accomplished by simply  
+editing the variables found in the  `.cmd`  scripts.
+
+<br>
 
 
-CURL (Generic) 32bit and 64bit executable from | http://curl.haxx.se/download.html#Win32
+<!----------------------------------------------------------------------------->
+
+[SteamCMD]: http://media.steampowered.com/installer/steamcmd.zip
+[Curl]: http://curl.haxx.se/download.html#Win32
+[Key]: http://steamcommunity.com/dev/apikey
